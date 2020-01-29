@@ -3,9 +3,6 @@ import { type_with_extended_attributes, unescape, autoParenter } from "./helpers
 import { Tokeniser } from "../tokeniser.ts";
 
 export class Attribute extends Base {
-  /**
-   * @param {import("../tokeniser.js").Tokeniser} tokeniser
-   */
   static parse(tokeniser: Tokeniser, { special, noInherit = false, readonly = false } = { special: undefined}) {
     const start_position = tokeniser.position;
     const tokens: TokenDictionary = { special };

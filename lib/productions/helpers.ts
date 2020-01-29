@@ -12,7 +12,6 @@ export function unescape(identifier: string) {
 
 /**
  * Parses comma-separated list
- * @param {import("../tokeniser").Tokeniser} tokeniser
  * @param {object} args
  * @param {Function} args.parser parser function for each item
  * @param {boolean} [args.allowDangler] whether to allow dangling comma
@@ -153,11 +152,8 @@ export function getMemberIndentation(parentTrivia: string) {
   return indentation + indentCh;
 }
 
-/**
- * @param {object} def
- * @param {import("./extended-attributes.js").ExtendedAttributes} def.extAttrs
- */
-export function autofixAddExposedWindow(def) {
+
+export function autofixAddExposedWindow(def: any) {
   return () => {
     if (def.extAttrs.length){
       const tokeniser = new Tokeniser("Exposed=Window,");
